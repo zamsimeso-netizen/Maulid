@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Makalah Maulid Nabi</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050b0a;
+    color: #f2f5f3;
+    line-height: 1.8;
+}
+
+/* BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #00c896;
+    opacity: 0.08;
+    filter: blur(100px);
+    top: 10%;
+    left: -100px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #00ffcc;
+    opacity: 0.06;
+    filter: blur(100px);
+    bottom: 10%;
+    right: -100px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 70px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #061b15,
+            #0b2920,
+            #03100d
+        );
+    border-bottom: 1px solid #00c896;
+}
+
+.moon {
+    font-size: 55px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+header h1 {
+    font-size: 34px;
+    color: #5fffd0;
+    text-shadow: 0 0 15px #00c896;
+    margin: 15px 0;
+}
+
+header p {
+    color: #aebbb7;
+}
+
+/* NAV */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(5,11,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #17352d;
+    padding: 12px 5px;
+    text-align: center;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+nav a {
+    color: #72e8c7;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* CONTAINER */
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+/* CARD */
+section {
+    background: rgba(12,24,20,0.92);
+    border: 1px solid #19382f;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgba(0,200,150,0.08);
+}
+
+section:hover {
+    border-color: #226b59;
+}
+
+/* TITLE */
+h2 {
+    color: #5fffd0;
+    border-left: 5px solid #00c896;
+    padding-left: 12px;
+}
+
+h3 {
+    color: #79eacb;
+}
+
+/* COVER */
+.cover {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.cover h2 {
+    border: none;
+    padding: 0;
+    font-size: 30px;
+}
+
+.arabic {
+    font-size: 28px;
+    color: #b9ffe9;
+    margin: 25px 0;
+}
+
+.info {
+    margin-top: 40px;
+    color: #b5c4bf;
+}
+
+/* FORM */
+.form-box {
+    background: #071411;
+    border: 1px solid #20483c;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 13px;
+    color: #7df0d0;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 6px;
+    border-radius: 9px;
+    border: 1px solid #31564b;
+    background: #0d211b;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #00c896;
+    box-shadow: 0 0 10px rgba(0,200,150,0.25);
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #00a878;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0,200,150,0.25);
+}
+
+button:hover {
+    background: #00c896;
+}
+
+/* DATA */
+#dataUser {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 14px;
+    background: #09231b;
+    border: 1px solid #00a878;
+}
+
+#dataUser span {
+    color: #63f0cb;
+    font-weight: bold;
+}
+
+/* QUOTE */
+.quote {
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    background: #071712;
+    border: 1px solid #23483d;
+    color: #b9ffe9;
+    font-style: italic;
+}
+
+/* LIST */
+li {
+    margin-bottom: 8px;
+}
+
+/* TOP BUTTON */
+#topBtn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: none;
+    padding: 0;
+    background: #00a878;
+    z-index: 50;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    color: #7d8d88;
+    border-top: 1px solid #17352d;
+}
+
+/* SMALL SCREEN */
+@media(max-width:600px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .arabic {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <div class="moon">🌙</div>
+
+    <h1>
+        MAKALAH MAULID NABI
+    </h1>
+
+    <p>
+        Nabi Muhammad ﷺ sebagai teladan bagi umat manusia
+    </p>
+
+</header>
+
+
+<!-- NAVIGATION -->
+<nav>
+
+    <a href="#identitas">IDENTITAS</a>
+    <a href="#pendahuluan">PENDAHULUAN</a>
+    <a href="#pembahasan">PEMBAHASAN</a>
+    <a href="#hikmah">HIKMAH</a>
+    <a href="#penutup">PENUTUP</a>
+
+</nav>
+
+
+<main>
+
+
+<!-- IDENTITAS -->
+<section id="identitas">
+
+<h2>📝 IDENTITAS</h2>
+
+<div class="form-box">
+
+<label for="username">
+User Name
+</label>
+
+<input
+    type="text"
+    id="username"
+    placeholder="Masukkan username"
+>
+
+<label for="nama">
+Nama Lengkap
+</label>
+
+<input
+    type="text"
+    id="nama"
+    placeholder="Masukkan nama lengkap"
+>
+
+<label for="kelas">
+Kelas
+</label>
+
+<input
+    type="text"
+    id="kelas"
+    placeholder="Contoh: IX A"
+>
+
+<label for="sekolah">
+Sekolah
+</label>
+
+<input
+    type="text"
+    id="sekolah"
+    placeholder="Masukkan nama sekolah"
+>
+
+<button onclick="simpanData()">
+💾 SIMPAN DATA
+</button>
+
+</div>
+
+
+<div id="dataUser">
+
+<h3>✅ DATA TERSIMPAN</h3>
+
+<p>
+Username:
+<span id="tampilUsername"></span>
+</p>
+
+<p>
+Nama:
+<span id="tampilNama"></span>
+</p>
+
+<p>
+Kelas:
+<span id="tampilKelas"></span>
+</p>
+
+<p>
+Sekolah:
+<span id="tampilSekolah"></span>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- COVER -->
+<section class="cover">
+
+<h2>
+MAKALAH
+</h2>
+
+<h3>
+MAULID NABI MUHAMMAD ﷺ
+</h3>
+
+<div class="arabic">
+ﷺ
+</div>
+
+<p>
+<strong>
+Meneladani Akhlak dan Perjuangan Nabi Muhammad ﷺ
+</strong>
+</p>
+
+<div class="info">
+
+<p>
+Nama: ______________________
+</p>
+
+<p>
+Kelas: _____________________
+</p>
+
+<p>
+Sekolah: ___________________
+</p>
+
+<p>
+Tahun Pelajaran 2026
+</p>
+
+</div>
+
+</section>
+
+
+<!-- BAB I -->
+<section id="pendahuluan">
+
+<h2>
+BAB I – PENDAHULUAN
+</h2>
+
+
+<h3>
+A. Latar Belakang
+</h3>
+
+<p>
+Nabi Muhammad ﷺ merupakan nabi dan rasul terakhir yang
+diutus oleh Allah SWT untuk menyampaikan ajaran Islam kepada
+seluruh umat manusia. Beliau memiliki akhlak yang mulia dan
+menjadi teladan dalam kehidupan sehari-hari.
+</p>
+
+<p>
+Maulid Nabi merupakan kegiatan yang dilakukan oleh sebagian
+umat Islam untuk mengenang kelahiran Nabi Muhammad ﷺ.
+Peringatan ini dapat menjadi kesempatan untuk mempelajari
+sejarah kehidupan beliau serta menumbuhkan kecintaan kepada
+Nabi Muhammad ﷺ.
+</p>
+
+
+<h3>
+B. Rumusan Masalah
+</h3>
+
+<ol>
+
+<li>
+Apa yang dimaksud dengan Maulid Nabi?
+</li>
+
+<li>
+Bagaimana sejarah singkat kelahiran Nabi Muhammad ﷺ?
+</li>
+
+<li>
+Apa hikmah memperingati Maulid Nabi?
+</li>
+
+<li>
+Bagaimana cara meneladani akhlak Nabi Muhammad ﷺ?
+</li>
+
+</ol>
+
+
+<h3>
+C. Tujuan
+</h3>
+
+<p>
+Makalah ini bertujuan untuk menambah pengetahuan mengenai
+Maulid Nabi Muhammad ﷺ, mengenal kehidupan beliau, serta
+menumbuhkan keinginan untuk meneladani akhlak dan perilaku
+beliau dalam kehidupan sehari-hari.
+</p>
+
+</section>
+
+
+<!-- BAB II -->
+<section id="pembahasan">
+
+<h2>
+BAB II – PEMBAHASAN
+</h2>
+
+
+<h3>
+A. Pengertian Maulid Nabi
+</h3>
+
+<p>
+Maulid Nabi berasal dari kata "maulid" yang berarti kelahiran.
+Dalam konteks umat Islam, Maulid Nabi biasanya merujuk pada
+kegiatan untuk mengenang kelahiran Nabi Muhammad ﷺ.
+</p>
+
+<p>
+Peringatan Maulid Nabi di berbagai daerah dapat dilakukan
+dengan kegiatan seperti membaca shalawat, mempelajari sirah
+Nabi, membaca Al-Qur'an, bersedekah, dan mendengarkan ceramah
+keagamaan.
+</p>
+
+
+<h3>
+B. Kelahiran Nabi Muhammad ﷺ
+</h3>
+
+<p>
+Nabi Muhammad ﷺ lahir di Kota Makkah dari keluarga Bani
+Hasyim. Beliau berasal dari suku Quraisy dan merupakan putra
+Abdullah bin Abdul Muthalib dan Aminah binti Wahab.
+</p>
+
+<p>
+Kelahiran beliau menjadi bagian penting dalam sejarah Islam.
+Sejak kecil, Nabi Muhammad ﷺ dikenal memiliki sifat yang
+jujur dan dapat dipercaya.
+</p>
+
+
+<h3>
+C. Akhlak Nabi Muhammad ﷺ
+</h3>
+
+<p>
+Nabi Muhammad ﷺ memiliki akhlak yang sangat mulia. Beliau
+mengajarkan umatnya untuk berkata jujur, amanah, bersabar,
+menyayangi sesama, serta berbuat baik kepada orang lain.
+</p>
+
+<div class="quote">
+"Meneladani Nabi bukan hanya dengan mengenang beliau,
+tetapi juga dengan berusaha menerapkan akhlaknya."
+</div>
+
+
+<h3>
+D. Perjuangan Nabi Muhammad ﷺ
+</h3>
+
+<p>
+Nabi Muhammad ﷺ menghadapi berbagai tantangan dalam
+menyampaikan ajaran Islam. Beliau tetap sabar dan teguh dalam
+menyampaikan risalah Allah SWT.
+</p>
+
+<p>
+Perjuangan beliau memberikan pelajaran kepada umat Islam
+tentang kesabaran, keberanian, kejujuran, dan keteguhan dalam
+menjalankan kebaikan.
+</p>
+
+</section>
+
+
+<!-- HIKMAH -->
+<section id="hikmah">
+
+<h2>
+BAB III – HIKMAH MAULID NABI
+</h2>
+
+
+<h3>
+A. Menambah Kecintaan kepada Nabi
+</h3>
+
+<p>
+Mempelajari kehidupan Nabi Muhammad ﷺ dapat membantu umat
+Islam mengenal perjuangan dan akhlak beliau sehingga dapat
+menumbuhkan rasa cinta kepada beliau.
+</p>
+
+
+<h3>
+B. Meneladani Akhlak Rasulullah ﷺ
+</h3>
+
+<p>
+Salah satu hikmah yang dapat diambil adalah berusaha
+menerapkan akhlak Nabi Muhammad ﷺ dalam kehidupan sehari-hari,
+seperti berkata jujur, menghormati orang tua, membantu sesama,
+dan menjaga perkataan.
+</p>
+
+
+<h3>
+C. Memperbanyak Shalawat
+</h3>
+
+<p>
+Peringatan Maulid Nabi sering diisi dengan pembacaan shalawat.
+Hal tersebut dapat menjadi pengingat bagi umat Islam untuk
+memperbanyak shalawat kepada Nabi Muhammad ﷺ.
+</p>
+
+
+<h3>
+D. Mempelajari Sejarah Islam
+</h3>
+
+<p>
+Dengan mempelajari sirah Nabi Muhammad ﷺ, kita dapat
+memahami sejarah perkembangan Islam dan mengambil pelajaran
+dari kehidupan Rasulullah ﷺ.
+</p>
+
+</section>
+
+
+<!-- BAB IV -->
+<section id="penutup">
+
+<h2>
+BAB IV – PENUTUP
+</h2>
+
+
+<h3>
+A. Kesimpulan
+</h3>
+
+<p>
+Maulid Nabi merupakan momentum bagi sebagian umat Islam
+untuk mengenang kelahiran Nabi Muhammad ﷺ dan mempelajari
+kehidupan serta akhlak beliau.
+</p>
+
+<p>
+Hal yang paling penting bukan hanya mengenang kelahiran
+Rasulullah ﷺ, tetapi juga berusaha menerapkan akhlak mulia
+beliau dalam kehidupan sehari-hari.
+</p>
+
+
+<h3>
+B. Saran
+</h3>
+
+<p>
+Sebagai generasi muda, kita sebaiknya mempelajari kehidupan
+Nabi Muhammad ﷺ dan berusaha meneladani sifat-sifat beliau,
+seperti jujur, amanah, sabar, penyayang, dan bertanggung jawab.
+</p>
+
+</section>
+
+
+<!-- DAFTAR PUSTAKA -->
+<section>
+
+<h2>
+📚 DAFTAR PUSTAKA
+</h2>
+
+<ul>
+
+<li>
+Al-Qur'an dan Terjemahannya.
+</li>
+
+<li>
+Buku-buku Sirah Nabawiyah.
+</li>
+
+<li>
+Buku Pendidikan Agama Islam.
+</li>
+
+</ul>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+🌙 Makalah Maulid Nabi Muhammad ﷺ
+</p>
+
+<p>
+Semoga bermanfaat dan menambah ilmu.
+</p>
+
+</footer>
+
+
+<!-- TOP BUTTON -->
+<button id="topBtn" onclick="keAtas()">
+↑
+</button>
+
+
+<script>
+
+/* SIMPAN DATA */
+
+function simpanData() {
+
+    let username =
+        document.getElementById("username").value.trim();
+
+    let nama =
+        document.getElementById("nama").value.trim();
+
+    let kelas =
+        document.getElementById("kelas").value.trim();
+
+    let sekolah =
+        document.getElementById("sekolah").value.trim();
+
+
+    if (
+        username === "" ||
+        nama === "" ||
+        kelas === "" ||
+        sekolah === ""
+    ) {
+
+        alert(
+            "⚠️ Harap isi semua data terlebih dahulu!"
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        "tampilUsername"
+    ).textContent = username;
+
+
+    document.getElementById(
+        "tampilNama"
+    ).textContent = nama;
+
+
+    document.getElementById(
+        "tampilKelas"
+    ).textContent = kelas;
+
+
+    document.getElementById(
+        "tampilSekolah"
+    ).textContent = sekolah;
+
+
+    document.getElementById(
+        "dataUser"
+    ).style.display = "block";
+
+
+    /* SIMPAN KE BROWSER */
+
+    localStorage.setItem(
+        "username",
+        username
+    );
+
+    localStorage.setItem(
+        "nama",
+        nama
+    );
+
+    localStorage.setItem(
+        "kelas",
+        kelas
+    );
+
+    localStorage.setItem(
+        "sekolah",
+        sekolah
+    );
+
+
+    alert(
+        "✅ Data berhasil disimpan!"
+    );
+}
+
+
+/* LOAD DATA SAAT WEBSITE DIBUKA */
+
+window.onload = function() {
+
+    let username =
+        localStorage.getItem("username");
+
+    let nama =
+        localStorage.getItem("nama");
+
+    let kelas =
+        localStorage.getItem("kelas");
+
+    let sekolah =
+        localStorage.getItem("sekolah");
+
+
+    if (
+        username &&
+        nama &&
+        kelas &&
+        sekolah
+    ) {
+
+        document.getElementById(
+            "username"
+        ).value = username;
+
+        document.getElementById(
+            "nama"
+        ).value = nama;
+
+        document.getElementById(
+            "kelas"
+        ).value = kelas;
+
+        document.getElementById(
+            "sekolah"
+        ).value = sekolah;
+
+        document.getElementById(
+            "tampilUsername"
+        ).textContent = username;
+
+        document.getElementById(
+            "tampilNama"
+        ).textContent = nama;
+
+        document.getElementById(
+            "tampilKelas"
+        ).textContent = kelas;
+
+        document.getElementById(
+            "tampilSekolah"
+        ).textContent = sekolah;
+
+        document.getElementById(
+            "dataUser"
+        ).style.display = "block";
+    }
+};
+
+
+/* TOMBOL KE ATAS */
+
+window.onscroll = function() {
+
+    let btn =
+        document.getElementById("topBtn");
+
+    if (
+        document.documentElement.scrollTop > 300
+    ) {
+
+        btn.style.display = "block";
+
+    } else {
+
+        btn.style.display = "none";
+
+    }
+};
+
+
+function keAtas() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
